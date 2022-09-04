@@ -1,20 +1,11 @@
-
-import { Meta } from '@/layouts/Meta';
-import { Main } from '@/templates/Main';
+import { Meta } from '@/components';
+import { BaseLayout } from '@/layouts/layout.comp';
 
 const Index = () => {
-
   return (
-    <Main
-      meta={
-        <Meta
-          title="Next.js Boilerplate Presentation"
-          description="Next js Boilerplate is the perfect starter code for your project. Build your React application with the Next.js framework."
-        />
-      }
-    >
-     Page Home
-    </Main>
+    <BaseLayout meta={<Meta title="Home" description="Home page NFT " />}>
+      Page Home
+    </BaseLayout>
   );
 };
 

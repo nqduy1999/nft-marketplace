@@ -2,8 +2,15 @@ import '../styles/global.css';
 
 import type { AppProps } from 'next/app';
 
-const MyApp = ({ Component, pageProps }: AppProps) => (
-  <Component {...pageProps} />
-);
+import { Navbar } from '@/components';
+
+const MyApp = ({ Component, pageProps }: AppProps) => {
+  return (
+    <>
+      <Navbar />
+      <Component {...pageProps} />
+    </>
+  );
+};
 
 export default MyApp;
