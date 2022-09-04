@@ -1,13 +1,14 @@
 export const images = {
-  logo: '/public/assets/images/logo.svg',
+  logo: '/assets/images/logo.svg',
+  smallEth: '/assets/images/small-eth.webp',
 };
 
 export const favicon = {
-  favicon16x16: '/public/assets/favicon/favicon-16x16.png',
-  favicon32x32: '/public/assets/favicon/favicon-32x32.png',
-  faviconMain: '/public/assets/favicon/favicon.ico',
+  favicon16x16: '/assets/favicon/favicon-16x16.png',
+  favicon32x32: '/assets/favicon/favicon-32x32.png',
+  faviconMain: '/assets/favicon/favicon.ico',
 };
 
 export const icon = {
-  AppleTouchIcon: '/public/assets/icon/apple-touch-icon.svg',
+  AppleTouchIcon: '/assets/icon/apple-touch-icon.svg',
 };
