@@ -1,12 +1,7 @@
-import { Meta } from '@/components';
-import { BaseLayout } from '@/layouts/layout.comp';
+import { HomePage } from '@/components/pages';
 
 const Index = () => {
-  return (
-    <BaseLayout meta={<Meta title="Home" description="Home page NFT " />}>
-      Page Home
-    </BaseLayout>
-  );
+  return <HomePage />;
 };
 
 export default Index;

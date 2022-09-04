@@ -1,6 +1,9 @@
+/* eslint-disable tailwindcss/migration-from-tailwind-2 */
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline';
 import { Fragment } from 'react';
+
+import { images } from '@/config/images';
 
 const navigation = [
   { name: 'Dashboard', href: '#', current: true },
@@ -13,7 +16,7 @@ function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ');
 }
 
-export function Navbar() {
+export default function Navbar() {
   return (
     <Disclosure as="nav" className="bg-gray-800">
       {({ open }) => (
@@ -35,7 +38,7 @@ export function Navbar() {
                 <div className="flex shrink-0 items-center">
                   <img
                     className="hidden h-10 w-auto lg:block"
-                    src="/images/page_logo.png"
+                    src={images.logo}
                     alt="Workflow"
                   />
                 </div>

@@ -1,6 +1,6 @@
 import { render, screen, within } from '@testing-library/react';
 
-import { BaseLayout } from './layout.comp';
+import BaseLayout from './layout.comp';
 
 describe('Main template', () => {
   describe('Render method', () => {
