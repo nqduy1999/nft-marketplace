@@ -1,5 +1,8 @@
 import { NftList } from '@/components/molecules';
 import { BaseLayout, Meta } from '@/components/templates';
+import type { NftMeta } from '@/types/nft';
+
+import nfts from '../../../../contents/meta.json';
 
 const HomePage = () => {
   return (
@@ -21,7 +24,7 @@ const HomePage = () => {
               Mint a NFT to get unlimited ownership forever!
             </p>
           </div>
-          <NftList />
+          <NftList nfts={nfts as NftMeta[]} />
         </div>
       </div>
     </BaseLayout>
