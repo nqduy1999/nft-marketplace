@@ -2,8 +2,14 @@ import '../styles/global.css';
 
 import type { AppProps } from 'next/app';
 
+import { Web3Provider } from '@/providers';
+
 const MyApp = ({ Component, pageProps }: AppProps) => {
-  return <Component {...pageProps} />;
+  return (
+    <Web3Provider>
+      <Component {...pageProps} />
+    </Web3Provider>
+  );
 };
 
 export default MyApp;
