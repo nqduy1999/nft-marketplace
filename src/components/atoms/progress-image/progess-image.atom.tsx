@@ -1,36 +1,39 @@
-import React, { useMemo, useState } from 'react';
+/* eslint-disable tailwindcss/no-custom-classname */
+import type { FunctionComponent } from 'react';
+import { memo, useEffect, useRef, useState } from 'react';
 
 type ImageProps = {
   src: string;
   className?: string;
 };
 
-const ProgressiveImage: React.FC<ImageProps> = ({
+const ProgressiveImage: FunctionComponent<ImageProps> = ({
   src,
   className,
-  ...rest
 }) => {
-  const [loading, setLoading] = useState(false);
+  const [blur, setBlur] = useState(true);
+  const loadingImage = useRef<any>();
 
-  useMemo(() => {
-    if (typeof window === 'undefined') return;
-    setLoading(true);
-    const img = new Image();
-    img.src = src;
-    img.onload = () => {
-      setLoading(false);
-    };
-  }, [src]);
+  useEffect(() => {
+    if (loadingImage.current.complete) {
+      setBlur(false);
+    }
+
+    loadingImage.current.addEventListener('load', () => {
+      setBlur(false);
+    });
+  }, []);
 
   return (
-    <img
-      {...rest}
-      src={src}
-      className={`${className} ${loading ? 'blur-sm' : ''}`}
-      alt={src}
-      loading="lazy"
-    />
+    <div className={`relative overflow-hidden ${blur ? 'blur' : 'unblur'}`}>
+      <img
+        className={`w-full ${className}`}
+        alt="real-image"
+        ref={loadingImage}
+        src={src}
+      />
+    </div>
   );
 };
 
-export default React.memo(ProgressiveImage);
+export default memo(ProgressiveImage);

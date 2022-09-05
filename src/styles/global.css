@@ -19,3 +19,16 @@ a:hover {
 .content ul {
   @apply my-6;
 }
+
+.unblur {
+  animation: unblur 2s linear;
+}
+
+@keyframes unblur {
+  from {
+    filter: blur(20px);
+  }
+  to {
+    filter: blur(0);
+  }
+}
