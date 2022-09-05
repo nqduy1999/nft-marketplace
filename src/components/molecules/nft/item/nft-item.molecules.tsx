@@ -1,5 +1,6 @@
 import type { FunctionComponent } from 'react';
 
+import { ProgressiveImage } from '@/components/atoms';
 import { images } from '@/config/images';
 import type { NftMeta } from '@/types/nft';
 
@@ -11,10 +12,9 @@ const NftItem: FunctionComponent<NftItemProps> = ({ item }) => {
   return (
     <>
       <div className="shrink-0">
-        <img
+        <ProgressiveImage
           className={`h-full w-full object-cover`}
           src={item.image}
-          alt="New NFT"
         />
       </div>
       <div className="flex flex-1 flex-col justify-between bg-white p-6">
