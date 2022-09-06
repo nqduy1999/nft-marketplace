@@ -1,6 +1,7 @@
 export const images = {
   logo: '/assets/images/logo.svg',
   smallEth: '/assets/images/small-eth.webp',
+  profile: '/assets/images/profile.jpg',
 };
 
 export const favicon = {
