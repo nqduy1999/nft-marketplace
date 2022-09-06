@@ -10,6 +10,7 @@ type ImageProps = {
 const ProgressiveImage: FunctionComponent<ImageProps> = ({
   src,
   className,
+  ...rest
 }) => {
   const [blur, setBlur] = useState(true);
   const loadingImage = useRef<any>();
@@ -27,6 +28,7 @@ const ProgressiveImage: FunctionComponent<ImageProps> = ({
   return (
     <div className={`relative overflow-hidden ${blur ? 'blur' : 'unblur'}`}>
       <img
+        {...rest}
         className={`w-full ${className}`}
         alt="real-image"
         ref={loadingImage}

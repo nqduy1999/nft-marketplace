@@ -1,13 +1,15 @@
+/* eslint-disable no-nested-ternary */
 /* eslint-disable tailwindcss/migration-from-tailwind-2 */
 /* eslint-disable @next/next/no-img-element */
 
-import { Disclosure, Menu } from '@headlessui/react';
-import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline';
-import Link from 'next/link';
+import { Disclosure } from '@headlessui/react';
+import { MenuIcon, XIcon } from '@heroicons/react/outline';
 
 import { ActiveLink } from '@/components/atoms';
 import { images } from '@/config/images';
-import { useAccount } from '@/hooks/web3';
+import { useAccount, useNetwork } from '@/hooks/web3';
+
+import Walletbar from './wallet-bar.comp';
 
 const navigation = [
   { name: 'Marketplace', href: '/', current: true },
@@ -20,9 +22,9 @@ function classNames(...classes: string[]) {
 
 export default function Navbar() {
   const { account } = useAccount();
+  const { network } = useNetwork();
 
-  console.log(account);
-  console.log(account.data);
+  console.log(network.data);
 
   return (
     <Disclosure as="nav" className="bg-gray-800">
@@ -45,7 +47,7 @@ export default function Navbar() {
                 <div className="flex shrink-0 items-center">
                   <img
                     className="hidden h-10 w-auto lg:block"
-                    src={images.logo}
+                    src={images.profile}
                     alt="Workflow"
                   />
                 </div>
@@ -69,43 +71,28 @@ export default function Navbar() {
                 </div>
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                <button
-                  type="button"
-                  className="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                >
-                  <span className="sr-only">View notifications</span>
-                  <BellIcon className="h-6 w-6" aria-hidden="true" />
-                </button>
-
-                {/* Profile dropdown */}
-                <Menu as="div" className="relative z-10 ml-3">
-                  <div>
-                    <Menu.Button className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-                      <span className="sr-only">Open user menu</span>
-                      <img
-                        className="h-8 w-8 rounded-full"
-                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                        alt=""
-                      />
-                    </Menu.Button>
-                  </div>
-                  <Menu.Items className="absolute right-0 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                    <Menu.Item>
-                      {({ active }) => (
-                        <Link href="/profile">
-                          <a
-                            className={classNames(
-                              active ? 'bg-gray-100' : '',
-                              'block px-4 py-2 text-sm text-gray-700'
-                            )}
-                          >
-                            Your Profile
-                          </a>
-                        </Link>
-                      )}
-                    </Menu.Item>
-                  </Menu.Items>
-                </Menu>
+                <div className="mr-2 self-center text-gray-300">
+                  <span className="inline-flex items-center rounded-md bg-purple-100 px-2.5 py-0.5 text-sm font-medium text-purple-800">
+                    <svg
+                      className="-ml-0.5 mr-1.5 h-2 w-2 text-indigo-400"
+                      fill="currentColor"
+                      viewBox="0 0 8 8"
+                    >
+                      <circle cx={4} cy={4} r={3} />
+                    </svg>
+                    {network.isLoading
+                      ? 'Loading...'
+                      : account.isInstalled
+                      ? network.data
+                      : 'Install Web3 Wallet'}
+                  </span>
+                </div>
+                <Walletbar
+                  isInstalled={account.isInstalled}
+                  isLoading={account.isLoading}
+                  connect={account.connect}
+                  account={account.data}
+                />
               </div>
             </div>
           </div>

@@ -1,5 +1,6 @@
 /* eslint-disable no-constant-condition */
 /* eslint-disable tailwindcss/no-custom-classname */
+import { ProgressiveImage } from '@/components/atoms';
 import { BaseLayout, Meta } from '@/components/templates';
 import type { NftMeta } from '@/types/nft';
 import { classNames } from '@/utils';
@@ -76,9 +77,8 @@ const ProfilePage = () => {
                             'group block w-full aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 overflow-hidden'
                           )}
                         >
-                          <img
+                          <ProgressiveImage
                             src={nft.image}
-                            alt=""
                             className={classNames(
                               true ? '' : 'group-hover:opacity-75',
                               'object-cover pointer-events-none'
@@ -109,9 +109,8 @@ const ProfilePage = () => {
                 <div className="space-y-6 pb-16">
                   <div>
                     <div className="aspect-w-10 aspect-h-7 block w-full overflow-hidden rounded-lg">
-                      <img
-                        src={nfts[0] && nfts[0].image}
-                        alt=""
+                      <ProgressiveImage
+                        src={nfts[0]?.image as string}
                         className="object-cover"
                       />
                     </div>
