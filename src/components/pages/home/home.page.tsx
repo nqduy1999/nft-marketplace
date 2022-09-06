@@ -1,22 +1,11 @@
 /* eslint-disable no-console */
 import { NftList } from '@/components/molecules';
 import { BaseLayout, Meta } from '@/components/templates';
-import { useWeb3 } from '@/providers';
 import type { NftMeta } from '@/types/nft';
 
 import nfts from '../../../../contents/meta.json';
 
 const HomePage = () => {
-  const { provider } = useWeb3();
-
-  const getAccounts = async () => {
-    const accounts = await provider!.listAccounts();
-    console.log(accounts[0]);
-  };
-
-  if (provider) {
-    getAccounts();
-  }
   return (
     <BaseLayout
       meta={

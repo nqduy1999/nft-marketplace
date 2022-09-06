@@ -1,2 +1,2 @@
-export { default as Web3Provider } from './web3/web3.context';
-export * from './web3/web3.context';
+export { default as Web3Provider } from './web3/web3.provider';
+export * from './web3/web3.provider';
