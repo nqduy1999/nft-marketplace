@@ -7,6 +7,7 @@ import Link from 'next/link';
 
 import { ActiveLink } from '@/components/atoms';
 import { images } from '@/config/images';
+import { useAccount } from '@/hooks/web3';
 
 const navigation = [
   { name: 'Marketplace', href: '/', current: true },
@@ -18,6 +19,11 @@ function classNames(...classes: string[]) {
 }
 
 export default function Navbar() {
+  const { account } = useAccount();
+
+  console.log(account);
+  console.log(account.data);
+
   return (
     <Disclosure as="nav" className="bg-gray-800">
       {({ open }) => (
