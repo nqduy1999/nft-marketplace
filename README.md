@@ -2,6 +2,7 @@
 # NFT Marketplace
 
 ## Getting Started
+
 ```
 > Ganache: https://trufflesuite.com/ganache/ - Cài EVM Blockchain ở local
 > Truffle: Thực hiện tạo smartcontract dưới local 
