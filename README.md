@@ -2,8 +2,6 @@
 # NFT Marketplace
 
 ## Getting Started
-
-**Cài đặt ***
 ```
 > Ganache: https://trufflesuite.com/ganache/ - Cài EVM Blockchain ở local
 > Truffle: Thực hiện tạo smartcontract dưới local 
@@ -14,6 +12,9 @@ $ Vào ganache vào mục contract kiểm tra contract đã deployed hay chưa
 > Khi gặp vấn đề vui lòng liên hệ Duy - https://www.facebook.com/quocduyhere/
 > development
 ```
+
+**Cài đặt **
+
 ```
 $ npm install
 $ npm run dev
