@@ -47,7 +47,7 @@ export default function Navbar() {
                 <div className="flex shrink-0 items-center">
                   <img
                     className="hidden h-10 w-auto lg:block"
-                    src={images.profile}
+                    src={images.logo}
                     alt="Workflow"
                   />
                 </div>
