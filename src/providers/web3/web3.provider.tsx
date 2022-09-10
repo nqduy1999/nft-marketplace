@@ -4,6 +4,8 @@ import { ethers } from 'ethers';
 import type { FunctionComponent } from 'react';
 import { createContext, useContext, useEffect, useState } from 'react';
 
+import type { NftMarketContract } from '@/types/nftMarketContract';
+
 import type { Web3State } from './web3.utils';
 import {
   createDefaultState,
@@ -27,7 +29,7 @@ const Web3Provider: FunctionComponent<any> = ({ children }) => {
         createWeb3State({
           ethereum: window.ethereum,
           provider,
-          contract,
+          contract: contract as unknown as NftMarketContract,
           isLoading: false,
         })
       );
