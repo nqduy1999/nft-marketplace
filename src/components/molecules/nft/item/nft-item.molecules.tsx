@@ -2,10 +2,10 @@ import type { FunctionComponent } from 'react';
 
 import { ProgressiveImage } from '@/components/atoms';
 import { images } from '@/config/images';
-import type { NftMeta } from '@/types/nft';
+import type { Nft } from '@/types/nft';
 
 type NftItemProps = {
-  item: NftMeta;
+  item: Nft;
 };
 
 const NftItem: FunctionComponent<NftItemProps> = ({ item }) => {
@@ -14,15 +14,19 @@ const NftItem: FunctionComponent<NftItemProps> = ({ item }) => {
       <div className="shrink-0">
         <ProgressiveImage
           className={`h-full w-full object-cover`}
-          src={item.image}
+          src={item.meta.image}
         />
       </div>
       <div className="flex flex-1 flex-col justify-between bg-white p-6">
         <div className="flex-1">
           <p className="text-sm font-medium text-indigo-600">Creatures NFT</p>
           <div className="mt-2 block">
-            <p className="text-xl font-semibold text-gray-900">{item.name}</p>
-            <p className="my-3 text-base text-gray-500">{item.description}</p>
+            <p className="text-xl font-semibold text-gray-900">
+              {item.meta.name}
+            </p>
+            <p className="my-3 text-base text-gray-500">
+              {item.meta.description}
+            </p>
           </div>
         </div>
         <div className="mb-4 overflow-hidden">
@@ -38,7 +42,7 @@ const NftItem: FunctionComponent<NftItemProps> = ({ item }) => {
                 </div>
               </dd>
             </div>
-            {item.attributes.map((attribute) => (
+            {item.meta.attributes.map((attribute) => (
               <div
                 key={attribute.trait_type}
                 className="flex flex-col px-4 pt-4"
