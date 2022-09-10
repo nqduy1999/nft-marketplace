@@ -14,7 +14,7 @@ $ Vào ganache vào mục contract kiểm tra contract đã deployed hay chưa
 > development
 ```
 
-**Cài đặt **
+Cài đặt
 
 ```
 $ npm install
