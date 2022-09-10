@@ -1,11 +1,12 @@
 /* eslint-disable no-console */
 import { NftList } from '@/components/molecules';
 import { BaseLayout, Meta } from '@/components/templates';
-import type { NftMeta } from '@/types/nft';
-
-import nfts from '../../../../contents/meta.json';
+import { useListedNfts } from '@/hooks/web3';
 
 const HomePage = () => {
+  const { nfts } = useListedNfts();
+  console.log(nfts.data);
+
   return (
     <BaseLayout
       meta={
@@ -25,7 +26,7 @@ const HomePage = () => {
               Mint a NFT to get unlimited ownership forever!
             </p>
           </div>
-          <NftList nfts={nfts as NftMeta[]} />
+          <NftList nfts={nfts?.data} />
         </div>
       </div>
     </BaseLayout>
