@@ -4,13 +4,6 @@
 ## Getting Started
 
 ```
-> Ganache: https://trufflesuite.com/ganache/ - Cài EVM Blockchain ở local
-> Truffle: Thực hiện tạo smartcontract dưới local 
-> Khi vào source: 
-$ Đầu tiên cần mở ganache, tạo project trỏ đến file truffle.config.js trong repo 
-$ gõ cmd truffle migrate 
-$ Vào ganache vào mục contract kiểm tra contract đã deployed hay chưa 
-> Khi gặp vấn đề vui lòng liên hệ Duy - https://www.facebook.com/quocduyhere/
 > development
 ```
 
