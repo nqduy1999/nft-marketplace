@@ -6,8 +6,7 @@
 ```
 > development
 ```
-
-Cài đặt
+Install
 
 ```
 $ npm install
