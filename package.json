@@ -12,11 +12,6 @@
     "lint": "next lint",
     "check-types": "tsc --noEmit --pretty",
     "test": "jest",
-    "cypress": "cypress open",
-    "cypress:headless": "cypress run",
-    "e2e": "start-server-and-test dev http://localhost:3000 cypress",
-    "eslint-fix": "eslint --fix  \"src/**/*.{js,jsx,ts,tsx,scss,less}\"",
-    "e2e:headless": "start-server-and-test dev http://localhost:3000 cypress:headless",
     "prepare": "husky install"
   },
   "dependencies": {
