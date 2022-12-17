@@ -1,8 +1,9 @@
 import type { FunctionComponent } from 'react';
 
-import { ProgressiveImage } from '@/components/atoms';
 import { images } from '@/config/images';
 import type { Nft } from '@/types/nft';
+
+import ProgressiveImage from '../progress-image/progress-image';
 
 type NftItemProps = {
   item: Nft;

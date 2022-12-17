@@ -5,7 +5,7 @@ import { ActiveLink } from '@/components/atoms';
 import { images } from '@/config/images';
 import { useAccount } from '@/hooks/web3';
 
-import Walletbar from '../wallet-bar/wallet-bar.comp';
+import Walletbar from '../wallet-bar/wallet-bar';
 import { useNavbar } from './hooks/useNavbar';
 
 const navigation = [
@@ -20,7 +20,9 @@ function classNames(...classes: string[]) {
 export default function Navbar() {
   const { account } = useAccount();
 
-  const { loadingNetwork } = useNavbar();
+  const { networkName } = useNavbar({
+    isInstaller: account.isInstalled,
+  });
   return (
     <Disclosure as="nav" className="bg-gray-800">
       {({ open }) => (
@@ -65,18 +67,17 @@ export default function Navbar() {
                   </div>
                 </div>
               </div>
-              <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+              <div className=" absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 <div className="mr-2 self-center text-gray-300">
                   <span className="inline-flex items-center rounded-md bg-purple-100 px-2.5 py-0.5 text-sm font-medium text-purple-800">
                     <svg
-                      className={`${
-                        loadingNetwork ? 'animate-ping' : ''
-                      } ml-0.5 mr-1.5 h-2 w-2 text-indigo-400`}
+                      className={`ml-0.5 mr-1.5 h-2 w-2 text-indigo-400`}
                       fill="currentColor"
                       viewBox="0 0 8 8"
                     >
                       <circle cx={4} cy={4} r={3} />
                     </svg>
+                    {networkName}
                   </span>
                 </div>
                 <Walletbar

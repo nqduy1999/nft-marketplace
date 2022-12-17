@@ -6,7 +6,7 @@ import Link from 'next/link';
 import type { FunctionComponent } from 'react';
 
 import { images } from '@/config/images';
-import { classNames } from '@/utils';
+import { classNames, minifyLengthAddress } from '@/utils';
 
 type WalletbarProps = {
   isLoading: boolean;
@@ -21,9 +21,6 @@ const Walletbar: FunctionComponent<WalletbarProps> = ({
   connect,
   account,
 }) => {
-  console.log('Is Loading: ', isLoading);
-  console.log('Is Installed: ', isInstalled);
-
   if (isLoading) {
     return (
       <div>
@@ -55,9 +52,7 @@ const Walletbar: FunctionComponent<WalletbarProps> = ({
                 disabled={true}
                 className="block px-4 pt-2 text-xs text-gray-700 disabled:text-gray-500"
               >
-                {`0x${account[2]}${account[3]}${account[4]}....${account.slice(
-                  -4
-                )}`}
+                {minifyLengthAddress(account)}
               </button>
             )}
           </Menu.Item>
