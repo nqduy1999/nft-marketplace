@@ -1,7 +1,7 @@
 /* eslint-disable tailwindcss/no-custom-classname */
 import type { ReactNode } from 'react';
 
-import Navbar from '../navbar/navbar.comp';
+import Navbar from '../components/molecules/navbar/navbar.comp';
 
 type IMainProps = {
   meta: ReactNode;

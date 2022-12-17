@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { useEffect } from 'react';
 import useSWR from 'swr';
 
@@ -10,7 +11,7 @@ const NETWORKS: { [k: string]: string } = {
   5: 'Goerli Test Network',
   42: 'Kovan Test Network',
   56: 'Binance Smart Chain',
-  5777: 'Ganache',
+  1337: 'Ganache',
 };
 
 type UseNetworkResponse = {
@@ -36,6 +37,7 @@ export const hookFactory: NetworkHookFactory =
       provider ? 'web3/useNetwork' : null,
       async () => {
         const { chainId } = await provider!.getNetwork();
+        console.log(chainId, 'chainId');
         if (!chainId) {
           throw new Error(
             'Cannot retreive network. Please, refresh browser or connect to other one.'

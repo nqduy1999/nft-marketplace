@@ -1,15 +1,12 @@
-/* eslint-disable no-nested-ternary */
-/* eslint-disable tailwindcss/migration-from-tailwind-2 */
-/* eslint-disable @next/next/no-img-element */
-
 import { Disclosure } from '@headlessui/react';
 import { MenuIcon, XIcon } from '@heroicons/react/outline';
 
 import { ActiveLink } from '@/components/atoms';
 import { images } from '@/config/images';
-import { useAccount, useNetwork } from '@/hooks/web3';
+import { useAccount } from '@/hooks/web3';
 
-import Walletbar from './wallet-bar.comp';
+import Walletbar from '../wallet-bar/wallet-bar.comp';
+import { useNavbar } from './hooks/useNavbar';
 
 const navigation = [
   { name: 'Marketplace', href: '/', current: true },
@@ -22,10 +19,8 @@ function classNames(...classes: string[]) {
 
 export default function Navbar() {
   const { account } = useAccount();
-  const { network } = useNetwork();
 
-  console.log(network.data);
-
+  const { loadingNetwork } = useNavbar();
   return (
     <Disclosure as="nav" className="bg-gray-800">
       {({ open }) => (
@@ -74,17 +69,14 @@ export default function Navbar() {
                 <div className="mr-2 self-center text-gray-300">
                   <span className="inline-flex items-center rounded-md bg-purple-100 px-2.5 py-0.5 text-sm font-medium text-purple-800">
                     <svg
-                      className="-ml-0.5 mr-1.5 h-2 w-2 text-indigo-400"
+                      className={`${
+                        loadingNetwork ? 'animate-ping' : ''
+                      } ml-0.5 mr-1.5 h-2 w-2 text-indigo-400`}
                       fill="currentColor"
                       viewBox="0 0 8 8"
                     >
                       <circle cx={4} cy={4} r={3} />
                     </svg>
-                    {network.isLoading
-                      ? 'Loading...'
-                      : account.isInstalled
-                      ? network.data
-                      : 'Install Web3 Wallet'}
                   </span>
                 </div>
                 <Walletbar
