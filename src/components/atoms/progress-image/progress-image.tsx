@@ -1,4 +1,3 @@
-/* eslint-disable tailwindcss/no-custom-classname */
 import type { FunctionComponent } from 'react';
 import { memo, useEffect, useRef, useState } from 'react';
 
